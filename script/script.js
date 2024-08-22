@@ -16,8 +16,8 @@ function isPalindrome(word) {
 const wordInput = prompt("Inserisci una parola:");
 
 // Verifichiamo se la parola è palindroma e visualizziamo il risultato
-const result = isPalindrome(wordInput) ? "è palindroma" : "non è palindroma";
-document.body.textContent = `La parola "${wordInput}" ${result}.`;
+const resultPal = isPalindrome(wordInput) ? "è palindroma" : "non è palindroma";
+document.body.textContent = `La parola "${wordInput}" ${resultPal}.`;
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -28,20 +28,35 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari(usando una funzione)
 Dichiariamo chi ha vinto.*/
 
-// Funzione per generare il numero
+// Funzione per generare un numero casuale tra 1 e 5
 function getRandomNumber() {
     return Math.floor(Math.random() * 5) + 1;
 }
 
-// Scelta dell'utente
-const userChoice = prompt("Choose even or odd (type 'even' or 'odd'):").toLowerCase();
-const userNumber = parseInt(prompt("Enter a number between 1 and 5:"));
+// Funzione per verificare se un numero è pari
+function isEven(number) {
+    return number % 2 === 0;
+}
 
-// Generazione numero CPU
+// Scelta utente
+const userChoice = prompt("Scegli pari o dispari (scrivi 'pari' o 'dispari')").toLowerCase();
+const userNumber = parseInt(prompt("Inserisci un numero da 1 a 5:"));
+
+// Generiamo un numero casuale per il computer
 const computerNumber = getRandomNumber();
 
-// Somma dei numeri
+// Calcolo la somma
 const sum = userNumber + computerNumber;
 
-// Determina se il numero è pari o no
+// Somma pari o dispari
 const isSumEven = isEven(sum);
+
+// Fase finale
+let result;
+if ((isSumEven && userChoice === 'pari') || (!isSumEven && userChoice === 'dispari')) {
+    result = "Hai vinto!";
+} else {
+    result = "Ha vinto il computer!";
+}
+
+console.log(result);
