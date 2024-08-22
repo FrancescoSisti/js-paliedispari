@@ -1,21 +1,16 @@
 console.log(`JS OK`);
 
+// Funzione per la verifica
 function isPalindrome(word) {
-    // Rimuoviamo gli spazi e convertiamo tutto in minuscolo per una comparazione più precisa
+    // Rimuoviamo gli spazi e convertiamo tutto in minuscolo
     const cleanedWord = word.replace(/\s/g, '').toLowerCase();
-    // Invertiamo la parola pulita
-    const reversedWord = cleanedWord.split('').reverse().join('');
-    // Confrontiamo le due parole
-    return cleanedWord === reversedWord;
+    // Invertiamo la parola e confrontiamo
+    return cleanedWord === cleanedWord.split('').reverse().join('');
 }
 
 // Chiediamo all'utente di inserire una parola
-const parola = prompt("Inserisci una parola:");
+const wordInput = prompt("Inserisci una parola:");
 
-// Chiamiamo la funzione e mostriamo il risultato
-const isPalindromo = isPalindrome(parola);
-if (isPalindromo) {
-    console.log("La parola", parola, "è un palindromo!");
-} else {
-    console.log("La parola", parola, "non è un palindromo.");
-}
+// Verifichiamo se la parola è palindroma e visualizziamo il risultato
+const result = isPalindrome(wordInput) ? "è palindroma" : "non è palindroma";
+document.body.textContent = `La parola "${wordInput}" ${result}.`;
