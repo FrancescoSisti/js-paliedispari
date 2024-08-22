@@ -32,3 +32,16 @@ Dichiariamo chi ha vinto.*/
 function getRandomNumber() {
     return Math.floor(Math.random() * 5) + 1;
 }
+
+// Scelta dell'utente
+const userChoice = prompt("Choose even or odd (type 'even' or 'odd'):").toLowerCase();
+const userNumber = parseInt(prompt("Enter a number between 1 and 5:"));
+
+// Generazione numero CPU
+const computerNumber = getRandomNumber();
+
+// Somma dei numeri
+const sum = userNumber + computerNumber;
+
+// Determina se il numero è pari o no
+const isSumEven = isEven(sum);
